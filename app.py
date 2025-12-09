@@ -9,21 +9,21 @@ st.set_page_config(
 )
 
 # --- 사이드바 설정 (API & Role Settings) ---
-[cite_start]st.sidebar.title("API & Role Settings") [cite: 3]
+st.sidebar.title("API & Role Settings")
 
 # 1. OpenAI API 키 입력
-[cite_start]api_key = st.sidebar.text_input("Enter your OpenAI API Key:", type="password", help="sk-...") [cite: 4]
+api_key = st.sidebar.text_input("Enter your OpenAI API Key:", type="password", help="sk-...")
 
 # 2. 역할 선택 (순서 중요: 먼저 정의해야 합니다!)
 # 원본의 'Video Director' 외에 소설가, 화가 등 프리셋 추가
 role_presets = {
-    [cite_start]"Video Director": """You are a professional film director. Always analyze ideas in terms of visual storytelling - use camera movement, lighting, framing, and emotional tone to explain your thoughts. Describe concepts as if you are planning a film scene.""",  [cite: 7, 8, 9]
+    "Video Director": """You are a professional film director. Always analyze ideas in terms of visual storytelling - use camera movement, lighting, framing, and emotional tone to explain your thoughts. Describe concepts as if you are planning a film scene.""", 
     "Novelist": """You are a best-selling novelist. Analyze ideas based on narrative structure, character development, and sensory details. Describe concepts using metaphors and evocative prose.""",
     "Abstract Painter": """You are an abstract painter. Interpret ideas through colors, textures, brushstrokes, and composition. Focus on the feelings and abstract concepts rather than realistic depiction."""
 }
 
 # 정의된 role_presets 변수를 사용하여 선택창 생성
-[cite_start]selected_role = st.sidebar.selectbox("Choose a role:", list(role_presets.keys())) [cite: 6]
+selected_role = st.sidebar.selectbox("Choose a role:", list(role_presets.keys()))
 
 # 3. 역할 프롬프트 편집 (사용자가 수정 가능)
 system_prompt = st.sidebar.text_area(
@@ -33,17 +33,17 @@ system_prompt = st.sidebar.text_area(
 )
 
 # --- 메인 화면 설정 ---
-[cite_start]st.title("🎭 Role-based Creative Chatbot") [cite: 10]
-[cite_start]st.markdown("### Select a creative role and ask your question!") [cite: 11]
+st.title("🎭 Role-based Creative Chatbot")
+st.markdown("### Select a creative role and ask your question!")
 
 # 구분선
 st.divider()
 
 # 사용자 입력창
-[cite_start]user_input = st.text_area("Enter your question or idea:", placeholder="e.g., How can I express sadness in movement?") [cite: 12, 13]
+user_input = st.text_area("Enter your question or idea:", placeholder="e.g., How can I express sadness in movement?")
 
 # 응답 생성 버튼
-[cite_start]if st.button("Generate Response", type="primary"): [cite: 14]
+if st.button("Generate Response", type="primary"):
     if not api_key:
         st.error("⚠️ Please enter your OpenAI API Key in the sidebar first.")
     elif not user_input:
@@ -74,4 +74,4 @@ st.divider()
 
 # --- 푸터 (Footer) ---
 st.markdown("---")
-[cite_start]st.caption("Built for 'Art & Advanced Big Data' Prof. Jahwan Koo (SKKU)") [cite: 15]
+st.caption("Built for 'Art & Advanced Big Data' Prof. Jahwan Koo (SKKU)")
